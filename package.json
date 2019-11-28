@@ -2,7 +2,7 @@
   "name": "myapp",
   "description": "a really cool app",
   "version": "1.0.0",
-  "engines": {
+  "dependencies": {
     "array-sort": "^1.0.0",
     "cheerio": "^1.0.0-rc.2",
     "discord.js": "^11.3.2",
