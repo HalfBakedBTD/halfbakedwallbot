@@ -26,7 +26,7 @@ fs.readdir("./commands/", (err, files) => {
 function adSend(bot) {
 	let wTime = 8 * walls[bot.user.username].wTime;
 	walls[bot.user.username].wTime += 1
-	 bot.channels.filter(c => c.name === 'wall-checks').forEach(channel => {
+	 bot.channels.filter(c => c.name === 'wall-check').forEach(channel => {
 		 if (channel.type == 'text') {
 				channel.send(`⌚ Time to Check walls! Time since last check: ${wTime} minutes     -[ @everyone ]`);
 			}
