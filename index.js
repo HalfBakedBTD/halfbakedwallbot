@@ -28,7 +28,7 @@ function adSend(bot) {
 	walls[bot.user.username].wTime += 1
 	 bot.channels.filter(c => c.name === 'wall-checks').forEach(channel => {
 		 if (channel.type == 'text') {
-				channel.send(`@Wall Checkers  it has been ${wTime} minutes since the last wall check!`);
+				channel.send(`@everyone it has been ${wTime} minutes since the last wall check!`);
 			}
 	 });
  setTimeout(() => adSend(bot), 8*60000);
@@ -38,7 +38,7 @@ bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
   bot.channels.filter(c => c.name === 'wall-check').forEach(channel => {
 			if (channel.type == 'text') {
-				channel.send("❗ I have just restarted.");
+				channel.send("I have just restarted!");
 		  }
 		});
   
@@ -48,12 +48,12 @@ bot.on("ready", async () => {
     };
   }
  
-  bot.user.setGame(`..help | ..invite`);
+  bot.user.setGame(`..help | HBG's Wall Bot!`);
 	adSend(bot)
 });
 
 bot.on('guildCreate', guild => {
-  bot.user.setGame(`..help | ..invite`);
+  bot.user.setGame(`..help | HBG's Wall Bot!`);
 });
 
 bot.on("message", async message => {
