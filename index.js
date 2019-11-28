@@ -28,13 +28,15 @@ function adSend(bot) {
 	 bot.guilds.filter(g => g.id === '553657927878180864').forEach(g => {
 		let role = "Wall Checkers";
 		 let pRole = g.roles.find('name', role)
+		walls[bot.user.username].wTime += 1
+	 		bot.channels.filter(c => c.name === 'wall-check').forEach(channel => {
+		 		if (channel.type == 'text') {
+					channel.send(`⌚ Time to Check walls! Time since last check: ${wTime} minutes     -[ ${pRole} ]`);
+				}
+	 		});
 	 });
-	walls[bot.user.username].wTime += 1
-	 bot.channels.filter(c => c.name === 'wall-check').forEach(channel => {
-		 if (channel.type == 'text') {
-				channel.send(`⌚ Time to Check walls! Time since last check: ${wTime} minutes     -[ ${pRole} ]`);
-			}
-	 });
+	
+	
  setTimeout(() => adSend(bot), 8*60000);
 }
 
