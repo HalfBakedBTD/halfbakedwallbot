@@ -1,4 +1,5 @@
 const botconfig = require("./botconfig.json");
+const walls = require("./walls.json");
 const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true});
 const fs = require("fs");
@@ -22,6 +23,16 @@ fs.readdir("./commands/", (err, files) => {
 
 });
 
+function adSend(bot) {
+	let wTime = 1;
+	 bot.channels.filter(c => c.name === 'wall-checks').forEach(channel => {
+		 if (channel.type == 'text') {
+				channel.send(`@Wall Checkers it has been ${wTime} minutes since the last wall check!`);
+			}
+	 });
+ setTimeout(() => adSend(bot), 8*60000);
+}
+
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
   bot.channels.filter(c => c.name === 'wall-check').forEach(channel => {
@@ -30,7 +41,12 @@ bot.on("ready", async () => {
 		  }
 		});
   
-
+if(!walls[bot.user.username]){
+    walls[bot.user.username] = {
+      wTime: 1
+    };
+  }
+  adSend(bot)
   bot.user.setGame(`..help | ..invite`);
 });
 
