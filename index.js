@@ -24,9 +24,9 @@ fs.readdir("./commands/", (err, files) => {
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
-  bot.channels.filter(c => c.name === 'ads').forEach(channel => {
+  bot.channels.filter(c => c.name === 'wall-check').forEach(channel => {
 			if (channel.type == 'text') {
-				channel.send("❗ AdBot had just restarted. Time to resend those server messages!");
+				channel.send("❗ I have just restarted.");
 		  }
 		});
   
