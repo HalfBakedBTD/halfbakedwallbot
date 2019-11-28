@@ -28,7 +28,7 @@ function adSend(bot) {
 	walls[bot.user.username].wTime += 1
 	 bot.channels.filter(c => c.name === 'wall-checks').forEach(channel => {
 		 if (channel.type == 'text') {
-				channel.send(`@everyone it has been ${wTime} minutes since the last wall check!`);
+				channel.send(`Time to Check walls! Time since last check: ${wTime} minutes     -[ @everyone ]`);
 			}
 	 });
  setTimeout(() => adSend(bot), 8*60000);
