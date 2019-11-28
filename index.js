@@ -24,10 +24,10 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 function adSend(bot) {
-	let wTime = 1;
+	let wTime = 8 * walls[bot.user.username].wTime;
 	 bot.channels.filter(c => c.name === 'wall-checks').forEach(channel => {
 		 if (channel.type == 'text') {
-				channel.send(`@Wall Checkers it has been ${wTime} minutes since the last wall check!`);
+				channel.send(`@Wall Checkers  it has been ${wTime} minutes since the last wall check!`);
 			}
 	 });
  setTimeout(() => adSend(bot), 8*60000);
