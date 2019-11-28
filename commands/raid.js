@@ -11,6 +11,8 @@ exports.run = async (bot, message, args) => {
   .setDescription(`💣 Triggered by <@${message.author.id}>!`);
   message.channel.send(botEmbed)
   message.channel.send("💣 WE ARE BEING RAIDED GET ONLINE AND PATCH! [ @everyone ]")
+  message.channel.send("💣 WE ARE BEING RAIDED GET ONLINE AND PATCH! [ @everyone ]")
+  message.channel.send("💣 WE ARE BEING RAIDED GET ONLINE AND PATCH! [ @everyone ]")
 }
 	      
 module.exports.help = {
