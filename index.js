@@ -31,7 +31,7 @@ function adSend(bot) {
 				channel.send(`⌚ Time to Check walls! Time since last check: ${wTime} minutes     -[ @everyone ]`);
 			}
 	 });
- setTimeout(() => adSend(bot), 1*60000);
+ setTimeout(() => adSend(bot), 8*60000);
 }
 
 bot.on("ready", async () => {
