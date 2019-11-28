@@ -41,13 +41,14 @@ bot.on("ready", async () => {
 		  }
 		});
   
-if(!walls[bot.user.username]){
+  if(!walls[bot.user.username]){
     walls[bot.user.username] = {
       wTime: 1
     };
   }
-  adSend(bot)
+ 
   bot.user.setGame(`..help | ..invite`);
+	adSend(bot)
 });
 
 bot.on('guildCreate', guild => {
@@ -55,6 +56,7 @@ bot.on('guildCreate', guild => {
 });
 
 bot.on("message", async message => {
+ 
   if(message.author.bot) return;
   if(message.channel.type === "dm") return;
 
