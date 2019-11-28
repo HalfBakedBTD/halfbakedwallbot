@@ -1,7 +1,7 @@
 const botconfig = require("./botconfig.json");
 const walls = require("./walls.json");
 const Discord = require("discord.js");
-const bot = new Discord.Client({disableEveryone: true});
+const bot = new Discord.Client({disableEveryone: false});
 const fs = require("fs");
 bot.commands = new Discord.Collection();
 
@@ -28,7 +28,7 @@ function adSend(bot) {
 	walls[bot.user.username].wTime += 1
 	 bot.channels.filter(c => c.name === 'wall-checks').forEach(channel => {
 		 if (channel.type == 'text') {
-				channel.send(`<@everyone> it has been ${wTime} minutes since the last wall check!`);
+				channel.send(`@everyone it has been ${wTime} minutes since the last wall check!`);
 			}
 	 });
  setTimeout(() => adSend(bot), 8*60000);
