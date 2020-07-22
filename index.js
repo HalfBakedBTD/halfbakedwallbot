@@ -58,7 +58,7 @@ bot.on("ready", async () => {
   
   if(!walls[bot.user.username]){
     walls[bot.user.username] = {
-      wTime: 5
+      wTime: 4
     };
   }
  
