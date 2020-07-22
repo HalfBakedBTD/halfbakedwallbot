@@ -32,7 +32,7 @@ function adSend(bot) {
 		 	let pRole = g.roles.find('name', role)
 	 			bot.channels.filter(c => c.name === 'wall-check').forEach(channel => {
 		 			if (channel.type == 'text') {
-						channel.send(`⌚ Time to Check walls! Time since last check: ${wTime} \n-[ ${pRole} ]\nMark with `..clear` or `..raid``);
+						channel.send("⌚ Time to Check walls! Time since last check: ${wTime} \n-[ ${pRole} ]\nMark with `..clear` or `..raid`");
 					}
 	 			});
 	 	});
@@ -67,7 +67,7 @@ bot.on("ready", async () => {
   timer(bot)
   bot.channels.filter(c => c.name === 'wall-check').forEach(channel => {
 	if (channel.type == 'text') {
-		channel.send(`⌚ Time to Check walls! Time since last check: **Bot Reboot**\nMark with `..clear` or `..raid``);
+		channel.send("⌚ Time to Check walls! Time since last check: **Bot Reboot**\nMark with `..clear` or `..raid`");
 	}
   });
 });
