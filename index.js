@@ -27,18 +27,18 @@ function adSend(bot) {
 	console.log(`Adsend function ran.`);
 	let wCheckk = 4
 	let wCheck = 1 * walls[bot.user.username].wTime;
-	if (wCheck > wCheckk) {
-		let wTime = 1 * walls[bot.user.username].wTime;  
-	 	bot.guilds.filter(g => g.id === '553657927878180864').forEach(g => {
-			let role = "Wall Checkers";
-		 	let pRole = g.roles.find('name', role)
+	let wTime = 1 * walls[bot.user.username].wTime;  
+	 bot.guilds.filter(g => g.id === '553657927878180864').forEach(g => {
+		let role = "Wall Checkers";
+		 let pRole = g.roles.find('name', role)
+		 if (wCheck > wCheckk) {
 	 			bot.channels.filter(c => c.name === 'wall-check').forEach(channel => {
 		 			if (channel.type == 'text') {
 						channel.send("⌚ Time to Check walls! Time since last check: ${wTime} \n-[ ${pRole} ]\nMark with `..clear` or `..raid`");
 					}
 	 			});
+		 	}
 	 	});
-	}
 	
  setTimeout(() => adSend(bot), 1*60000);
 }
