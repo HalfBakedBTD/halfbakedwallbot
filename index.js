@@ -24,7 +24,7 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 function adSend(bot) {
-	if (walls[bot.user.username] === 5) {
+	if (walls[bot.user.username].wTime === 5) {
 		let wTime = 1 * walls[bot.user.username].wTime;  
 	 	bot.guilds.filter(g => g.id === '553657927878180864').forEach(g => {
 			let role = "Wall Checkers";
@@ -42,7 +42,7 @@ function adSend(bot) {
 }
 
 function timer(bot) {
-	walls[bot.user.username] === walls[bot.user.username] + 0.1
+	walls[bot.user.username].wTime === walls[bot.user.username].wTime + 0.1
 	
  setTimeout(() => timer(bot), 1*6000);
 }
@@ -62,11 +62,12 @@ bot.on("ready", async () => {
   }
  
   bot.user.setGame(`..help | HBG's Wall Bot!`);
-	adSend(bot)
+  adSend(bot)
 });
 
 bot.on('guildCreate', guild => {
   bot.user.setGame(`..help | HBG's Wall Bot!`);
+  timer(bot)
 });
 
 bot.on("message", async message => {
@@ -88,6 +89,7 @@ bot.on("message", async message => {
   if (!message.content.startsWith(`${prefix}`)) {
     return
   }
+
   
   let commandfile = bot.commands.get(cmd.slice(prefix.length));
   if(commandfile) commandfile.run(bot,message,args);
