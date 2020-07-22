@@ -42,6 +42,7 @@ function adSend(bot) {
 }
 
 function timer(bot) {
+	console.log(`+0.1`);
 	walls[bot.user.username].wTime += walls[bot.user.username].wTime + 0.1
 	
  setTimeout(() => timer(bot), 1*6000);
