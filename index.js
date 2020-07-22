@@ -24,15 +24,15 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 function adSend(bot) {
+	console.log(`Adsend function ran.`);
 	if (walls[bot.user.username].wTime === 5) {
 		let wTime = 1 * walls[bot.user.username].wTime;  
 	 	bot.guilds.filter(g => g.id === '553657927878180864').forEach(g => {
 			let role = "Wall Checkers";
 		 	let pRole = g.roles.find('name', role)
-			walls[bot.user.username].wTime += 1
 	 			bot.channels.filter(c => c.name === 'wall-check').forEach(channel => {
 		 			if (channel.type == 'text') {
-						channel.send(`⌚ Time to Check walls! Time since last check: ${wTime} -[ ${pRole} ]`);
+						channel.send(`⌚ Time to Check walls! Time since last check: ${wTime} \n-[ ${pRole} ]`);
 					}
 	 			});
 	 	});
