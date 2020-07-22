@@ -31,14 +31,12 @@ function adSend(bot) {
 	 bot.guilds.filter(g => g.id === '553657927878180864').forEach(g => {
 		let role = "Wall Checkers";
 		 let pRole = g.roles.find('name', role)
-		 if (wCheck > wCheckk) {
-	 			bot.channels.filter(c => c.name === 'wall-check').forEach(channel => {
-		 			if (channel.type == 'text') {
-						channel.send("⌚ Time to Check walls! Time since last check: ${wTime} \n-[ ${pRole} ]\nMark with `..clear` or `..raid`");
-					}
-	 			});
-		 	}
+	 	bot.channels.filter(c => c.name === 'wall-check').forEach(channel => {
+		 	if (channel.type == 'text') {
+				channel.send("⌚ Time to Check walls! Time since last check: ${wTime} \n-[ ${pRole} ]\nMark with `..clear` or `..raid`");
+			}
 	 	});
+	 });
 	
  setTimeout(() => adSend(bot), 1*60000);
 }
