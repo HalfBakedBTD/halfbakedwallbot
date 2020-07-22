@@ -38,14 +38,14 @@ function adSend(bot) {
 	 	});
 	}
 	
- setTimeout(() => adSend(bot), 1*1);
+ setTimeout(() => adSend(bot), 1*30000);
 }
 
 function timer(bot) {
-	console.log(`+0.1`);
-	walls[bot.user.username].wTime += walls[bot.user.username].wTime + 0.1
+	console.log(`+1`);
+	walls[bot.user.username].wTime += walls[bot.user.username].wTime + 1
 	
- setTimeout(() => timer(bot), 1*6000);
+ setTimeout(() => timer(bot), 1*60000);
 }
 
 bot.on("ready", async () => {
