@@ -58,17 +58,17 @@ bot.on("ready", async () => {
   
   if(!walls[bot.user.username]){
     walls[bot.user.username] = {
-      wTime: 1
+      wTime: 5
     };
   }
  
   bot.user.setGame(`..help | HBG's Wall Bot!`);
   adSend(bot)
+  timer(bot)
 });
 
 bot.on('guildCreate', guild => {
   bot.user.setGame(`..help | HBG's Wall Bot!`);
-  timer(bot)
 });
 
 bot.on("message", async message => {
