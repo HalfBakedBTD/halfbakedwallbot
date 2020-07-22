@@ -25,8 +25,9 @@ fs.readdir("./commands/", (err, files) => {
 
 function adSend(bot) {
 	console.log(`Adsend function ran.`);
+	let wCheckk = 4
 	let wCheck = 1 * walls[bot.user.username].wTime;
-	if (wCheck > 4) {
+	if (wCheck > wCheckk) {
 		let wTime = 1 * walls[bot.user.username].wTime;  
 	 	bot.guilds.filter(g => g.id === '553657927878180864').forEach(g => {
 			let role = "Wall Checkers";
