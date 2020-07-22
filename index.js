@@ -24,20 +24,27 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 function adSend(bot) {
-	let wTime = 8 * walls[bot.user.username].wTime;  
-	 bot.guilds.filter(g => g.id === '553657927878180864').forEach(g => {
-		let role = "Wall Checkers";
-		 let pRole = g.roles.find('name', role)
-		walls[bot.user.username].wTime += 1
-	 		bot.channels.filter(c => c.name === 'wall-check').forEach(channel => {
-		 		if (channel.type == 'text') {
-					channel.send(`⌚ Time to Check walls! Time since last check: ${wTime} minutes     -[ ${pRole} ]`);
-				}
-	 		});
-	 });
+	if (walls[bot.user.username] === 5) {
+		let wTime = 1 * walls[bot.user.username].wTime;  
+	 	bot.guilds.filter(g => g.id === '553657927878180864').forEach(g => {
+			let role = "Wall Checkers";
+		 	let pRole = g.roles.find('name', role)
+			walls[bot.user.username].wTime += 1
+	 			bot.channels.filter(c => c.name === 'wall-check').forEach(channel => {
+		 			if (channel.type == 'text') {
+						channel.send(`⌚ Time to Check walls! Time since last check: ${wTime} -[ ${pRole} ]`);
+					}
+	 			});
+	 	});
+	}
 	
+ setTimeout(() => adSend(bot), 1*1);
+}
+
+function timer(bot) {
+	walls[bot.user.username] === walls[bot.user.username] + 0.1
 	
- setTimeout(() => adSend(bot), 8*60000);
+ setTimeout(() => timer(bot), 1*6000);
 }
 
 bot.on("ready", async () => {
